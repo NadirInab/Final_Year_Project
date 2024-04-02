@@ -1,0 +1,39 @@
+<div class="container page">
+  <div class="d-flex justify-content-between page__box p-3">
+    <span class="p-3">Users</span>
+  </div>
+
+  <div class="d-flex flex-column mt-5 ">
+   <app-statistics></app-statistics>
+   
+    <table class="table table-striped table-hover table-bordered border-primary mt-5">
+        <thead>
+          <tr>
+            <th scope="col">ID</th>
+            <th scope="col">Name</th>
+            <th scope="col">Email</th>
+            <th scope="col">Ticket</th>
+            <th scope="col">Role</th>
+            <th scope="col">Action</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let user of Users">
+            <td>{{ user.id }}</td>
+            <td>{{ user.name }}</td>
+            <td>{{ user.email }}</td>
+            <td>{{ user.ticket ? 'Yes' : 'No' }}</td>
+            <td>{{ user.role }}</td>
+            <td class="d-flex">
+              <button mat-icon-button matTooltip="edit"  class="yellowText" >
+                <mat-icon>edit</mat-icon>
+              </button>
+              <button mat-icon-button matTooltip="delete" color="warn" (click)="dalete()">
+                <mat-icon>delete</mat-icon>
+              </button>
+            </td>
+          </tr>
+        </tbody>
+    </table>  
+  </div>
+</div>
